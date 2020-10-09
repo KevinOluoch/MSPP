@@ -66,14 +66,14 @@ plot(Flowering.raster,
      xlab="Longitude",
      ylab="Latitude") 
 ```
-![Image: Sowing to Flowering Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Flowering2Maturity.png)
+![Image: Sowing to Flowering Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Sowing2Flowering.png)
 ```R
 plot(Maturity.raster,  
      main="Flowering to Maturity Mean Days",
      xlab="Longitude",
      ylab="Latitude")
 ```
-![Image: Flowering to Maturity Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Sowing2Flowering.png)
+![Image: Flowering to Maturity Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Flowering2Maturity.png)
 
 #### Appendix
 ##### Appendix 1 Connecting an Excel sheet to the source CSV
