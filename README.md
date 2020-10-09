@@ -8,15 +8,15 @@ The temperature data used in MSPP is available on the agMERRA website (link) in 
 
 ```R
 	library(devtools)
-	## Loading required package: usethis
-	# Load "agMERRAnc4ToCSV" package
 	path2package <- "../Rpackage/agMERRAnc4ToCSV"
 	devtools::load_all(path2package)
 	## Loading agMERRAnc4ToCSV
+	
 	# Place inputs in the data folder
 	netCDF_TminFolder <- "../data/netCDF/AgMERRA_tmin"
 	netCDF_TmaxFolder <- "../data/netCDF/AgMERRA_tmax"
 	netCDF_TavgFolder <- "../data/netCDF/AgMERRA_tavg"
+	
 	# Get netCDf filepaths
 	Tmin.nc4files <- agMERRAnc4ToCSV::nc4fullpaths(netCDF_TminFolder)
 	Tmax.nc4files <- agMERRAnc4ToCSV::nc4fullpaths(netCDF_TmaxFolder)
