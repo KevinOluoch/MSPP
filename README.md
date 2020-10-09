@@ -3,7 +3,7 @@
 This document is a description of the process of preparing data from agMERRA for use as input in the MSPP tool and the process of interpolating data from the MSPP tool to provide a raster file output. The MSPP tool is an agronomy tool for calculating the approximate days it takes for maize to flower and mature.
 MSPP is written in Visual Basic (VBA) programming language that is accessible in excel via the developer tab. The MSPP tool utilizes various mathematical models that model maize phenology based on the daily maximum, minimum and average temperature of a location, for several consecutive years between 1980 and 2010. The computation starts with the sowing date as day zero.
 This document provides steps that should precede the execution of this tool - create data for the MSPP and follow the execution of this tool - interpolate the MSPP results. The implementation of these steps in R is simplified by the agMERREnc4ToCSV package that is provided alongside the MSPP tool.
-Section 1: Create data for the MSPP
+#### Section 1: Create data for the MSPP
 The temperature data used in MSPP is available on the agMERRA website (link) in the netCDF format. The spatial extent of the data is the whole world. Each NetCDF file covers either the minimum, maximum or average temperature in one year over the period between 1980 and 2010. The first step is thus to download this data for all the years (or a required period) and have the data in three folders: minimum, maximum and average temperature. The file paths to these folders are then used to get the file paths of all the NetCDF files in them.
 
 ```R
@@ -44,7 +44,7 @@ The data should be saved in CSV files that can either be pasted in the MSPP tool
 	write.csv(Tmax, "temperatureCSVs/Tmax.csv", row.names = FALSE, col.names = FALSE)
 	write.csv(Tavg, "temperatureCSVs/Tavg.csv", row.names = FALSE, col.names = FALSE)
 ```
-Section 2: Interpolating the results.
+#### Section 2: Interpolating the results.
 The MSPP tool’s output is an Excel workbook. The workbook has 3 worksheets. The first is a summary sheet, which gives the mean and standard deviation of the number of days between user-selected sowing dates of user-selected months (mean and standard deviation for all selected years) and the flowering dates, and between the flowering dates and the maturity dates. The second gives the sowing dates, in all selected months and all selected years, and their corresponding flowering dates while, the third provides the flowering dates, in all selected months and all selected years, and their corresponding maturity dates.
 Interpolating the Mean values from the summary sheet can be done using the “interpolateMeanDays” function (agMERRAnc4ToCSV library). The function takes the coordinates of the locations and the mean values as input parameters and returns a raster of the interpolated values over an area covering the extent of the input coordinates.
 ```R
