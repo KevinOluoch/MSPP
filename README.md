@@ -31,8 +31,8 @@ MSPP uses point data in its computation. To use it in a given set of location, y
 
 	# Create a SpatialPointsDataFrame Object from the CSV
 	shpfle <- agMERRAnc4ToCSV::wgsSpatialPointsDataFrame(inputCSV,
-											   LongitudeColumn = "Lon", 
-											   LatitudeColumn = "Lat")
+											LongitudeColumn = "Lon", 
+											LatitudeColumn = "Lat")
 ```
 Extracting data from the NetCDF files and providing the output in a data frame involves a few steps which are all covered in the “xtrctagMERRAnc4” function from “agMERRAnc4ToCSV” package. The “xtrctagMERRAnc4” function requires a vector of file paths to NetCDF files, a SpatialPointsDataFrame of locations to be extracted and the names of two columns in the SpatialPointsDataFrame with geographical names. It then returns a data frame of extracted values, which is organized in the format required in the MSPP tool.
 The data should be saved in CSV files that can either be pasted in the MSPP tool or loaded via links to Excel sheets. The teps for connecting an Excel sheet to an CSV file is provided below - Appendix.
@@ -66,12 +66,14 @@ plot(Flowering.raster,
      xlab="Longitude",
      ylab="Latitude") 
 ```
+![Image: Sowing to Flowering Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Flowering2Maturity.png)
 ```R
 plot(Maturity.raster,  
      main="Flowering to Maturity Mean Days",
      xlab="Longitude",
      ylab="Latitude")
 ```
+![Image: Flowering to Maturity Mean Days](https://github.com/KevinOluoch/MSPP/blob/main/images/Sowing2Flowering.png)
 
 #### Appendix
 ##### Appendix 1 Connecting an Excel sheet to the source CSV
