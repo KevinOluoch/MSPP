@@ -15,5 +15,6 @@ Imports:
     ncdf4,
     sp,
     raster,
-    gstat
+    gstat,
+    readxl
 
