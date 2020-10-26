@@ -3,5 +3,6 @@
 export(interpolateMeanDays)
 export(mergeSummarySheets)
 export(nc4fullpaths)
+export(viewTable)
 export(wgsSpatialPointsDataFrame)
 export(xtrctagMERRAnc4)

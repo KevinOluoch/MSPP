@@ -4,8 +4,6 @@ path2package <- "Rpackage/agMERRAnc4ToCSV"
 devtools::load_all(path2package)
 
 
-
-
 Arusha_Varieties.dir <- "MSPP110_tests/Arusha/Arusha_Varieties"
 Mbeya_Varieties.dir <- "MSPP110_tests/Mbeya/Mbeya_Varieties"
 
@@ -13,11 +11,14 @@ Mbeya_Varieties.dir <- "MSPP110_tests/Mbeya/Mbeya_Varieties"
 Arusha_Varieties.df <- agMERRAnc4ToCSV::mergeSummarySheets(Arusha_Varieties.dir)
 Mbeya_Varieties.df <- agMERRAnc4ToCSV::mergeSummarySheets(Mbeya_Varieties.dir)
 
-
-dir.create("./output/csv", showWarnings = FALSE, recursive = TRUE)
-
+# Plot Varieties table
+devtools::load_all(path2package)
+agMERRAnc4ToCSV::viewTable(Mbeya_Varieties.df[Mbeya_Varieties.df[, "filename"] %in% "V9_1980_2009_0102101112_011020", -1])
+agMERRAnc4ToCSV::viewTable(Mbeya_Varieties.df)
+# Save Merged data
 write.csv(Arusha_Varieties.df, "./output/csv/Arusha_Varieties.csv")
 write.csv(Mbeya_Varieties.df, "./output/csv/Mbeya_Varieties.csv")
+
 
 # MAP DATA --------------------------------------------------------------------
 # a map for one variety (v2) based on 01 Jan sowing date  
@@ -57,7 +58,8 @@ V2_Briere_3_Jan1st.raster.mask
 
 
 
-# MAPS --------------------------------------------------------------------
+
+# MAPS OF ARUSHA AND MBEYA ------------------------------------------------
 #  map with the district  boundaries, 
 #  maps, one for Arusha and one for Mbeya
 #   
